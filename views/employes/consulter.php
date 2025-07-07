@@ -41,9 +41,15 @@
                     <td><?= htmlspecialchars($absence['dateDebut']) ?></td>
                     <td><?= htmlspecialchars($absence['dateFin']) ?></td>
                     <td><?= htmlspecialchars($absence['commentaire']) ?></td>
+                    <td>
+                        <a href="index.php?page=editAbsence&id=<?= $abs['id'] ?>&employe=<?= $employe['matricule'] ?>">Modifier</a>
+                        <a href="index.php?page=deleteAbsence&id=<?= $abs['id'] ?>&employe=<?= $employe['matricule'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')">Supprimer</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </table>
+        <br>
+        <a href="index.php?page=addAbsence&employe=<?= $employe['matricule'] ?>">Ajouter une absence</a> 
     <?php else: ?>
         <p>Aucune absence enregistrée.</p>
     <?php endif; ?>

@@ -35,6 +35,18 @@ switch ($page) {
         $_GET['action'] = 'edit';
         include 'controllers/employeController.php';
         break;
+    case 'addAbsence':
+        $_GET['action'] = 'add';
+        include 'controllers/absenceController.php';
+        break;
+    case 'editAbsence':
+        $_GET['action'] = 'edit';
+        include 'controllers/absenceController.php';
+        break;
+    case 'deleteAbsence':
+        $_GET['action'] = 'delete';
+        include 'controllers/absenceController.php';
+        break;
     case 'attestation':
         include 'controllers/attestationController.php';
         break;
