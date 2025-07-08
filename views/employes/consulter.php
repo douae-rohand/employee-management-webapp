@@ -42,17 +42,18 @@
                     <td><?= htmlspecialchars($absence['dateFin']) ?></td>
                     <td><?= htmlspecialchars($absence['commentaire']) ?></td>
                     <td>
-                        <a href="index.php?page=editAbsence&id=<?= $abs['id'] ?>&employe=<?= $employe['matricule'] ?>">Modifier</a>
-                        <a href="index.php?page=deleteAbsence&id=<?= $abs['id'] ?>&employe=<?= $employe['matricule'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')">Supprimer</a>
+                        <a href="index.php?page=editAbsence&id=<?= $absence['id'] ?>&employe=<?= urlencode($employe['matricule']) ?>">Modifier</a>
+                        <a href="index.php?page=deleteAbsence&id=<?= $absence['id'] ?>&employe=<?= urlencode($employe['matricule']) ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Supprimer</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </table>
-        <br>
-        <a href="index.php?page=addAbsence&employe=<?= $employe['matricule'] ?>">Ajouter une absence</a> 
     <?php else: ?>
         <p>Aucune absence enregistrée.</p>
     <?php endif; ?>
+
+    <br>
+    <a href="index.php?page=addAbsence&employe=<?= urlencode($employe['matricule']) ?>">Ajouter une absence</a>
 
     <br>
     <a href="index.php?page=editEmploye&matricule=<?php echo urlencode($employe['matricule']); ?>">
@@ -61,8 +62,17 @@
     <a href="index.php?page=deleteEmploye&matricule=<?php echo urlencode($employe['matricule']); ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">
         <button>Supprimer</button>
     </a>
-    <a href="index.php?page=attestation&matricule=<?php echo urlencode($employe['matricule']); ?>">
-        <button>Générer attestation</button>
+    
+    <h3>Générer une attestation</h3>
+
+    <a href="index.php?page=attestation&matricule=<?= $employe['matricule'] ?>&type=attestationSalaire">
+        <button>Attestation de salaire</button>
+    </a>
+    <a href="index.php?page=attestation&matricule=<?= $employe['matricule'] ?>&type=certificatTravail">
+        <button>Certificat de travail</button>
+    </a>
+    <a href="index.php?page=attestation&matricule=<?= $employe['matricule'] ?>&type=domiciliationSalaire">
+        <button>Attestation de domiciliation</button>
     </a>
 
 <?php else: ?>

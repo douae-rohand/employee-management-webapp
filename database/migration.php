@@ -10,42 +10,34 @@ CREATE TABLE IF NOT EXISTS employes (
     badge VARCHAR(50),
     dateNaissance DATE,
     dateEmbauche DATE,
+    dateRetrait_Démission DATE,
     departement VARCHAR(50),
     responsable VARCHAR(50),
     categorie VARCHAR(50),
     fonctionService VARCHAR(50),
+    CIN VARCHAR(20) NOT NULL,
+    NUMCNSS VARCHAR(20) NOT NULL,
+    salaireHeure DECIMAL(10, 2) DEFAULT NULL,
+    Banque VARCHAR(50) DEFAULT NULL,
+    numCompte VARCHAR(50) DEFAULT NULL,
     photo VARCHAR(255) DEFAULT NULL
 );
 ";
 $pdo->exec($sql);
 echo "Table 'employes' créée.<br>";
 
-// Utilisateurs (par ex: RH, admin)
+// admin
 $sql = "
-CREATE TABLE IF NOT EXISTS utilisateurs (
+CREATE TABLE IF NOT EXISTS admin (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
     username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('admin', 'rh') DEFAULT 'rh',
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    password VARCHAR(255) NOT NULL
 );
 ";
 $pdo->exec($sql);
 echo "Table 'utilisateurs' créée.<br>";
-
-// Attestations
-$sql = "
-CREATE TABLE IF NOT EXISTS attestations (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    matricule VARCHAR(50),
-    typeAttestation VARCHAR(100),
-    dateCreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    contenu TEXT,
-    FOREIGN KEY (matricule) REFERENCES employes(matricule) ON DELETE CASCADE
-);
-";
-$pdo->exec($sql);
-echo "Table 'attestations' créée.<br>";
 
 // Absences
 $sql = "

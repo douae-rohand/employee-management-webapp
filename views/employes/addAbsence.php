@@ -7,10 +7,10 @@
     <input type="text" name="type" required><br><br>
     
     <label>Date début:</label><br>
-    <input type="date" name="date_debut" required><br><br>
+    <input type="date" name="dateDebut" required><br><br>
 
     <label>Date fin:</label><br>
-    <input type="date" name="date_fin" required><br><br>
+    <input type="date" name="dateFin" required><br><br>
 
     <label>Commentaire:</label><br>
     <textarea name="commentaire"></textarea><br><br>

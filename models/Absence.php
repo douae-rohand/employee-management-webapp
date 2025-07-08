@@ -26,7 +26,7 @@ class Absence {
 
     public static function delete($id) {
         global $pdo;
-        $sql = "DELETE FROM absences WHERE matricule = ?";
+        $sql = "DELETE FROM absences WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         return $stmt->execute([$id]);
     }
@@ -46,7 +46,8 @@ class Absence {
     
     public static function getById($id) {
         global $pdo;
-        $stmt = $pdo->prepare("SELECT * FROM absences WHERE id = ?");
+        $sql = "SELECT * FROM absences WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }

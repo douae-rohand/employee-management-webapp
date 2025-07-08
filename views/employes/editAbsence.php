@@ -7,10 +7,10 @@
     <input type="text" name="type" value="<?= htmlspecialchars($absence['type']) ?>" required><br><br>
 
     <label>Date début:</label><br>
-    <input type="date" name="date_debut" value="<?= htmlspecialchars($absence['date_debut']) ?>" required><br><br>
+    <input type="date" name="dateDebut" value="<?= htmlspecialchars($absence['dateDebut']) ?>" required><br><br>
 
     <label>Date fin:</label><br>
-    <input type="date" name="date_fin" value="<?= htmlspecialchars($absence['date_fin']) ?>" required><br><br>
+    <input type="date" name="dateFin" value="<?= htmlspecialchars($absence['dateFin']) ?>" required><br><br>
 
     <label>Commentaire:</label><br>
     <textarea name="commentaire"><?= htmlspecialchars($absence['commentaire']) ?></textarea><br><br>
