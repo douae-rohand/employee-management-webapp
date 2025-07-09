@@ -50,6 +50,18 @@ switch ($page) {
     case 'attestation':
         include 'controllers/attestationController.php';
         break;
+    case 'login':
+        include 'controllers/loginController.php';
+        break;
+    case 'signup':
+        include 'controllers/signupcontroller.php';
+        break;
+    case 'profil':
+        include 'controllers/adminController.php';
+        break;
+    case 'logout':
+        include 'controllers/logoutController.php';
+        break;
     default:
         include 'views/login.php';
         break;

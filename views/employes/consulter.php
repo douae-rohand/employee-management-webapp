@@ -15,15 +15,21 @@
             <th>Matricule</th>
             <td><?php echo htmlspecialchars($employe['matricule']); ?></td>
         </tr>
-        <tr><th>Nom</th><td><?php echo htmlspecialchars($employe['nom']); ?></td></tr>
-        <tr><th>Prénom</th><td><?php echo htmlspecialchars($employe['prenom']); ?></td></tr>
-        <tr><th>Badge</th><td><?php echo htmlspecialchars($employe['badge']); ?></td></tr>
-        <tr><th>Date Naissance</th><td><?php echo htmlspecialchars($employe['dateNaissance']); ?></td></tr>
-        <tr><th>Date Embauche</th><td><?php echo htmlspecialchars($employe['dateEmbauche']); ?></td></tr>
-        <tr><th>Département</th><td><?php echo htmlspecialchars($employe['departement']); ?></td></tr>
-        <tr><th>Responsable</th><td><?php echo htmlspecialchars($employe['responsable']); ?></td></tr>
-        <tr><th>Catégorie</th><td><?php echo htmlspecialchars($employe['categorie']); ?></td></tr>
-        <tr><th>Fonction/Service</th><td><?php echo htmlspecialchars($employe['fonctionService']); ?></td></tr>
+        <tr><th>Nom</th><td><?php echo htmlspecialchars($employe['nom'] ?? ''); ?></td></tr>
+        <tr><th>Prénom</th><td><?php echo htmlspecialchars($employe['prenom'] ?? ''); ?></td></tr>
+        <tr><th>Badge</th><td><?php echo htmlspecialchars($employe['badge'] ?? ''); ?></td></tr>
+        <tr><th>Date Naissance</th><td><?php echo htmlspecialchars($employe['dateNaissance'] ?? ''); ?></td></tr>
+        <tr><th>Date Embauche</th><td><?php echo htmlspecialchars($employe['dateEmbauche'] ?? ''); ?></td></tr>
+        <tr><th>Date retrait / démission:</th><td><?php echo htmlspecialchars($employe['dateRetrait_Demission'] ?? ''); ?></td></tr>
+        <tr><th>Département</th><td><?php echo htmlspecialchars($employe['departement'] ?? ''); ?></td></tr>
+        <tr><th>Responsable</th><td><?php echo htmlspecialchars($employe['responsable'] ?? ''); ?></td></tr>
+        <tr><th>Catégorie</th><td><?php echo htmlspecialchars($employe['categorie'] ?? ''); ?></td></tr>
+        <tr><th>Fonction/Service</th><td><?php echo htmlspecialchars($employe['fonctionService'] ?? ''); ?></td></tr>
+        <tr><th>CIN</th><td><?php echo htmlspecialchars($employe['CIN'] ?? ''); ?></td></tr>
+        <tr><th>N° CNSS</th><td><?php echo htmlspecialchars($employe['NUMCNSS'] ?? ''); ?></td></tr>
+        <tr><th>Salaire par heure</th><td><?php echo htmlspecialchars($employe['salaireHeure'] ?? ''); ?></td></tr>
+        <tr><th>Banque</th><td><?php echo htmlspecialchars($employe['Banque'] ?? ''); ?></td></tr>
+        <tr><th>N° Compte</th><td><?php echo htmlspecialchars($employe['numCompte'] ?? ''); ?></td></tr>
     </table>
     
     <?php if (!empty($absences)) : ?>

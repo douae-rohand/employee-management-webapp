@@ -4,10 +4,8 @@ require_once 'models/Employe.php';
 require_once 'models/Attestation.php';
 require_once 'models/Admin.php';
 
-//$nomRh = $_SESSION['nom'];
-//$prenomRh = $_SESSION['prenom'];
-$nomRh = 'douae';
-$prenomRh = 'rohand';
+$nomRh = $_SESSION['nom'];
+$prenomRh = $_SESSION['prenom'];
 $nomCompletRh = $nomRh . ' ' . $prenomRh;
 
 $matricule = $_GET['matricule'] ?? null;

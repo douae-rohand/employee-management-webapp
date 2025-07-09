@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS employes (
     badge VARCHAR(50),
     dateNaissance DATE,
     dateEmbauche DATE,
-    dateRetrait_Démission DATE,
+    dateRetrait_Demission DATE,
     departement VARCHAR(50),
     responsable VARCHAR(50),
     categorie VARCHAR(50),
@@ -48,6 +48,7 @@ CREATE TABLE absences (
     dateDebut DATE NOT NULL,
     dateFin DATE NOT NULL,
     commentaire TEXT,
+    email VARCHAR(100) DEFAULT NULL,
     FOREIGN KEY (matricule) REFERENCES employes(matricule) ON DELETE CASCADE
 );
 ";

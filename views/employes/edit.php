@@ -15,31 +15,49 @@
     <input type="file" name="photo" accept="image/*"><br><br>
 
     <label>Nom:</label><br>
-    <input type="text" name="nom" value="<?= htmlspecialchars($employe['nom']) ?>" required><br><br>
+    <input type="text" name="nom" value="<?= htmlspecialchars($employe['nom'] ?? '') ?>" required><br><br>
 
     <label>Prénom:</label><br>
-    <input type="text" name="prenom" value="<?= htmlspecialchars($employe['prenom']) ?>" required><br><br>
+    <input type="text" name="prenom" value="<?= htmlspecialchars($employe['prenom'] ?? '') ?>" required><br><br>
 
     <label>Badge:</label><br>
-    <input type="text" name="badge" value="<?= htmlspecialchars($employe['badge']) ?>"><br><br>
+    <input type="text" name="badge" value="<?= htmlspecialchars($employe['badge'] ?? '') ?>"><br><br>
 
     <label>Date Naissance:</label><br>
-    <input type="date" name="dateNaissance" value="<?= htmlspecialchars($employe['dateNaissance']) ?>"><br><br>
+    <input type="date" name="dateNaissance" value="<?= htmlspecialchars($employe['dateNaissance'] ?? '') ?>"><br><br>
 
     <label>Date Embauche:</label><br>
-    <input type="date" name="dateEmbauche" value="<?= htmlspecialchars($employe['dateEmbauche']) ?>"><br><br>
+    <input type="date" name="dateEmbauche" value="<?= htmlspecialchars($employe['dateEmbauche'] ?? '') ?>"><br><br>
+
+    <label>Date retrait / démission:</label><br>
+    <input type="date" name="dateRetrait_Demission" value="<?= htmlspecialchars($employe['dateRetrait_Demission'] ?? '') ?>"><br><br>
 
     <label>Département:</label><br>
-    <input type="text" name="departement" value="<?= htmlspecialchars($employe['departement']) ?>"><br><br>
+    <input type="text" name="departement" value="<?= htmlspecialchars($employe['departement'] ?? '') ?>"><br><br>
 
     <label>Responsable:</label><br>
-    <input type="text" name="responsable" value="<?= htmlspecialchars($employe['responsable']) ?>"><br><br>
+    <input type="text" name="responsable" value="<?= htmlspecialchars($employe['responsable'] ?? '') ?>"><br><br>
 
     <label>Catégorie:</label><br>
-    <input type="text" name="categorie" value="<?= htmlspecialchars($employe['categorie']) ?>"><br><br>
+    <input type="text" name="categorie" value="<?= htmlspecialchars($employe['categorie'] ?? '') ?>"><br><br>
 
     <label>Fonction / Service:</label><br>
-    <input type="text" name="fonctionService" value="<?= htmlspecialchars($employe['fonctionService']) ?>"><br><br>
+    <input type="text" name="fonctionService" value="<?= htmlspecialchars($employe['fonctionService'] ?? '') ?>"><br><br>
+
+    <label>CIN:</label><br>
+    <input type="date" name="CIN" value="<?= htmlspecialchars($employe['CIN'] ?? '') ?>"><br><br>
+
+    <label>N° CNSS:</label><br>
+    <input type="text" name="NUMCNSS" value="<?= htmlspecialchars($employe['NUMCNSS'] ?? '') ?>"><br><br>
+
+    <label>Salaire par heure:</label><br>
+    <input type="text" name="salaireHeure" value="<?= htmlspecialchars($employe['salaireHeure'] ?? '') ?>"><br><br>
+
+    <label>Banque:</label><br>
+    <input type="text" name="Banque" value="<?= htmlspecialchars($employe['Banque'] ?? '') ?>"><br><br>
+
+    <label>N° compte:</label><br>
+    <input type="text" name="numCompte" value="<?= htmlspecialchars($employe['numCompte'] ?? '') ?>"><br><br>
 
     <button type="submit">Modifier</button>
 </form>

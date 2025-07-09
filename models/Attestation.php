@@ -23,8 +23,8 @@ class Attestation {
         $template = new TemplateProcessor($templatePath);
 
         // Variables communes
-        $template->setValue('nom', $employe['nom']);
-        $template->setValue('prenom', $employe['prenom']);
+        $template->setValue('NOM', $employe['nom']);
+        $template->setValue('PRENOM', $employe['prenom']);
         $template->setValue('CIN', $employe['CIN']);
         $template->setValue('NUMCNSS', $employe['NUMCNSS']);
         $template->setValue('fonctionService', $employe['fonctionService']);
@@ -37,7 +37,7 @@ class Attestation {
         if ($type === 'attestationSalaire') {
             $template->setValue('salaire', $employe['salaireHeure']);
         } elseif ($type === 'certificatTravail') {
-            $template->setValue('dateRetrait_Démission', $employe['dateRetrait_Démission']);
+            $template->setValue('dateRetrait_Démission', $employe['dateRetrait_Demission']);
         } elseif ($type === 'domiciliationSalaire') {
             $template->setValue('Banque', $employe['Banque']);
             $template->setValue('numCompte', $employe['numCompte']);

@@ -24,6 +24,9 @@
     <label>Date Embauche:</label><br>
     <input type="date" name="dateEmbauche"><br><br>
 
+    <label>Date retrait / démission:</label><br>
+    <input type="date" name="dateRetrait_Demission"><br><br>
+
     <label>Département:</label><br>
     <input type="text" name="departement"><br><br>
 
@@ -35,6 +38,21 @@
 
     <label>fonction / Service:</label><br>
     <input type="text" name="fonctionService"><br><br>
+
+    <label>CIN:</label><br>
+    <input type="text" name="CIN"><br><br>
+
+    <label>N° CNSS:</label><br>
+    <input type="text" name="NUMCNSS"><br><br>
+
+    <label>Salaire par heure:</label><br>
+    <input type="text" name="salaireHeure"><br><br>
+
+    <label>Banque:</label><br>
+    <input type="text" name="Banque"><br><br>
+
+    <label>N° compte:</label><br>
+    <input type="text" name="numCompte"><br><br>
 
     <button type="submit">Ajouter</button>
 </form>
