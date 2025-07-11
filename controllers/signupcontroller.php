@@ -5,10 +5,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
     // Créer admin
-    $success = Admin::create($username, $nom, $prenom, $password);
+    $success = Admin::create($username, $nom, $prenom, $email, $password);
 
     if ($success) {
         // Rediriger vers login

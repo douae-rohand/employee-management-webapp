@@ -57,6 +57,22 @@ switch ($page) {
         include 'controllers/signupcontroller.php';
         break;
     case 'profil':
+        include 'views/admin/profil.php';
+        break;
+    case 'editAdmin':
+        $_GET['action'] = 'editAdmin';
+        include 'controllers/adminController.php';
+        break;
+    case 'forgotPassword':
+        $_GET['action'] = 'forgotPassword';
+        include 'controllers/adminController.php';
+        break;
+    case 'resetPassword1':  // avec email (token)
+        $_GET['action'] = 'resetPassword1';
+        include 'controllers/adminController.php';
+        break;
+    case 'resetPassword2': // avec old password
+        $_GET['action'] = 'resetPassword2';
         include 'controllers/adminController.php';
         break;
     case 'logout':

@@ -1,6 +1,11 @@
 <?php
 require_once 'models/Absence.php';
 
+if (!isset($_SESSION['id'])) {
+    header('Location: index.php?page=login');
+    exit;
+}
+
 // Déterminer l'action
 $action = $_GET['action'] ?? 'add';
 

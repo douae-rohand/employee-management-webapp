@@ -1,5 +1,3 @@
-<?php include 'includes/header.php'; ?>
-
 <h2>Connexion Administrateur</h2>
 
 <?php if (!empty($error)): ?>
@@ -15,6 +13,8 @@
 
     <button type="submit">Se connecter</button>
 </form>
+
+<p><a href="index.php?page=forgotPassword">Mot de passe oublié ?</a></p>
 
 <p>Vous n'avez pas de compte ? <a href="index.php?page=signup">Créer un compte</a></p>
 

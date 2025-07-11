@@ -33,7 +33,10 @@ CREATE TABLE IF NOT EXISTS admin (
     nom VARCHAR(100) NOT NULL,
     prenom VARCHAR(100) NOT NULL,
     username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) DEFAULT NULL,
+    resetToken VARCHAR(100) DEFAULT NULL,
+    resetTokenExpire DATETIME DEFAULT NULL
 );
 ";
 $pdo->exec($sql);
@@ -48,7 +51,6 @@ CREATE TABLE absences (
     dateDebut DATE NOT NULL,
     dateFin DATE NOT NULL,
     commentaire TEXT,
-    email VARCHAR(100) DEFAULT NULL,
     FOREIGN KEY (matricule) REFERENCES employes(matricule) ON DELETE CASCADE
 );
 ";

@@ -1,6 +1,7 @@
 <?php
 require_once 'models/Admin.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -12,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['username'] = $admin['username'];
         $_SESSION['nom'] = $admin['nom'];
         $_SESSION['prenom'] = $admin['prenom'];
+        $_SESSION['email'] = $admin['email'];
 
         // Rediriger vers la home
         header("Location: index.php?page=home");

@@ -4,6 +4,11 @@ require_once 'models/Employe.php';
 require_once 'models/Attestation.php';
 require_once 'models/Admin.php';
 
+if (!isset($_SESSION['id'])) {
+    header('Location: index.php?page=login');
+    exit;
+}
+
 $nomRh = $_SESSION['nom'];
 $prenomRh = $_SESSION['prenom'];
 $nomCompletRh = $nomRh . ' ' . $prenomRh;
