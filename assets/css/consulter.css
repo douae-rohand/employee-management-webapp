@@ -1,0 +1,154 @@
+/* consulter.css : Style pour la page de consultation d'un employé */
+
+:root {
+    --bleu-clair: #6ec1e4;
+    --bleu-fonce: #2980b9;
+    --move: #a084ca;
+    --move-fonce: #6c3483;
+    --gris-fond: #f5f6fa;
+    --move-bg: linear-gradient(135deg, #a084ca 0%, #6ec1e4 100%);
+}
+
+.consultation-container {
+    max-width: 98vw;
+    margin: 30px auto;
+    background: var(--gris-fond);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(80, 80, 160, 0.10);
+    padding: 45px 45px;
+    border: 2px solid var(--bleu-clair);
+}
+
+.consultation-container h2 {
+    text-align: center;
+    color: var(--move-fonce);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    background: var(--move-bg);
+    padding: 10px 0;
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(160, 132, 202, 0.10);
+}
+
+.consultation-table {
+    width: 100%;
+    min-width: 1400px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(110, 193, 228, 0.08);
+}
+
+.consultation-table th,
+.consultation-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #eaeaea;
+    text-align: left;
+}
+
+.consultation-table th {
+    background: var(--bleu-clair);
+    color: #fff;
+    width: 180px;
+    font-weight: 600;
+}
+
+.consultation-photo {
+    text-align: center;
+    padding-right: 30px;
+}
+
+.consultation-photo img {
+    border-radius: 8px;
+    border: 2px solid var(--move);
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    background: #fafafa;
+    box-shadow: 0 2px 8px rgba(160, 132, 202, 0.10);
+}
+
+.absence-section {
+    margin-top: 30px;
+}
+
+.absence-section h3 {
+    color: var(--bleu-fonce);
+    margin-bottom: 10px;
+    background: var(--move-bg);
+    color: #fff;
+    padding: 6px 0 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.absence-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(160, 132, 202, 0.08);
+}
+
+.absence-table th,
+.absence-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.absence-table th {
+    background: var(--move);
+    color: #fff;
+}
+
+.retour-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    background: linear-gradient(90deg, var(--bleu-clair), var(--move));
+    padding: 8px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(110, 193, 228, 0.10);
+    border: none;
+}
+
+.retour-link:hover {
+    background: linear-gradient(90deg, var(--bleu-fonce), var(--move-fonce));
+    box-shadow: 0 4px 12px rgba(160, 132, 202, 0.15);
+}
+
+footer {
+    background: var(--move);
+    color: #fff;
+    padding: 10px 0 5px 0;
+    border-radius: 0 0 10px 10px;
+    margin-top: 40px;
+    font-size: 1em;
+}
+
+main {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(110, 193, 228, 0.07);
+    padding: 20px 10px 20px 10px;
+}
+
+nav {
+    background: var(--bleu-clair);
+    border-radius: 8px;
+    padding: 8px 0 8px 12px;
+    margin-bottom: 25px !important;
+    box-shadow: 0 1px 4px rgba(110, 193, 228, 0.10);
+}
+
+nav .retour-link {
+    margin-top: 0;
+    margin-right: 10px;
+}
