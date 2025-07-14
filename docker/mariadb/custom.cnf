@@ -1,0 +1,15 @@
+[mysqld]
+# Utiliser UTF-8 complet pour supporter tous les caractères (y compris accents et emojis)
+character-set-server = utf8mb4
+collation-server     = utf8mb4_unicode_ci
+
+# Paquet plus grand (utile si tu fais de grosses requêtes ou export/import)
+max_allowed_packet = 64M
+
+# Mode SQL strict pour éviter des données corrompues
+sql_mode = STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+
+# Activer le log des requêtes lentes
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/slow.log
+long_query_time = 2

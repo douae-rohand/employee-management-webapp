@@ -4,7 +4,7 @@ require_once 'models/Admin.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['id'])) {     // id ici c'est l'id d'admin
     header('Location: index.php?page=login');
     exit;
 }
