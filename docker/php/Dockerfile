@@ -8,7 +8,7 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN a2enmod rewrite
 
 # Étape 4 : copier le code de ton projet dans le conteneur
-COPY . /var/www/html/
+COPY ../app /var/www/html/
 
 # Étape 5 : définir le répertoire de travail (facultatif mais recommandé)
 WORKDIR /var/www/html/
