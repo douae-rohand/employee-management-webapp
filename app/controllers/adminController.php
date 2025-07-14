@@ -4,11 +4,6 @@ require_once 'models/Admin.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if (!isset($_SESSION['id'])) {     // id ici c'est l'id d'admin
-    header('Location: index.php?page=login');
-    exit;
-}
-
 // Récupérer action
 $action = $_GET['action'] ?? 'edit';
 
@@ -17,6 +12,10 @@ $vue = null;
 
 switch ($action) {
     case 'editAdmin':
+        if (!isset($_SESSION['id'])) {     // id ici c'est l'id d'admin
+            header('Location: index.php?page=login');
+            exit;
+        }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $admin = Admin::getById($_SESSION['id']);
 
@@ -56,7 +55,7 @@ switch ($action) {
             Admin::storeResetToken($admin['id'], $token, $expire);
 
             // Préparer lien
-            $resetLink = "http://localhost/projetRH/index.php?page=resetPassword1&token=$token";
+            $resetLink = "http://localhost/projetRH/app/index.php?page=resetPassword1&token=$token";
 
             // Envoyer email
             require 'vendor/autoload.php';
@@ -71,10 +70,26 @@ switch ($action) {
                 $mail->SMTPSecure = 'tls'; // Sécurise la connexion avec TLS
                 $mail->SMTPDebug = 0; // Désactive le débogage SMTP
                 $mail->Port = 587; // Port SMTP de Gmail
-
+                
                 $mail->setFrom('douaetest14@gmail.com', 'douae'); //L’expéditeur
                 $mail->addAddress($admin['email'], $admin['nom']);  //Destinataire
 
+
+                /*$mail->isSMTP(); //Indique à PHPMailer d’utiliser le protocole SMTP
+                $mail->Host = getenv('MAIL_HOST');  //Serveur SMTP de Gmail
+                $mail->SMTPAuth = true;  //Active l'authentification SMTP
+                echo (getenv('MAIL_USERNAME'));
+                $mail->Username = getenv('MAIL_USERNAME');      // Ton email
+                $mail->Password = getenv('MAIL_PASSWORD');          // Mot de passe application (SMTP password)
+                $mail->SMTPSecure = getenv('MAIL_ENCRYPTION'); // Sécurise la connexion avec TLS
+                $mail->SMTPDebug = 0; // Désactive le débogage SMTP
+                $mail->Port = getenv('MAIL_PORT'); // Port SMTP de Gmail
+
+
+                $mail->setFrom(getenv('MAIL_FROM_ADDRESS'), getenv('MAIL_FROM_NAME')); //L’expéditeur
+                $mail->addAddress($admin['email'], $admin['nom']);  //Destinataire'*/
+
+                
                 //Construire le contenu de mail
                 $mail->isHTML(true); 
                 $mail->Subject = 'Réinitialisation du mot de passe';
@@ -119,6 +134,10 @@ switch ($action) {
         break;
 
     case 'resetPassword2':
+        if (!isset($_SESSION['id'])) {     // id ici c'est l'id d'admin
+            header('Location: index.php?page=login');
+            exit;
+        }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $oldPassword = $_POST['old_password'];
             $newPassword = $_POST['new_password'];
