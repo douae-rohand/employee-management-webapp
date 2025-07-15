@@ -10,8 +10,8 @@ $password = '';
 // Lire les variables d'environnement
 $host = getenv('DB_HOST') ?: 'localhost';
 $dbname = getenv('DB_DATABASE') ?: 'temasa_db';
-$username = getenv('DB_USERNAME') ?: 'root';
-$password = getenv('DB_PASSWORD') ?: '';
+$username = getenv('DB_USERNAME') ?: 'admin';
+$password = getenv('DB_PASSWORD') ?: '123';
 
 
 try {
