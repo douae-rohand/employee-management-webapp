@@ -7,6 +7,7 @@ error_reporting(E_ALL);
 session_start();
 
 require_once 'database/connexion.php';
+require_once 'database/migration.php';
 
 // Déterminer quelle page appeler
 $page = $_GET['page'] ?? 'home';
