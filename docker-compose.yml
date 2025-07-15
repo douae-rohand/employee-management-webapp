@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   php:
-    image: php:8.2-apache
+    image: douae01/php_app:latest
     container_name: app_php
     volumes:
       - ./app:/var/www/html/
