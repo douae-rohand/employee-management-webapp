@@ -10,6 +10,11 @@ services:
       - db
     environment:
       - PHP_EXTENSION_DIR=/usr/local/lib/php/extensions/no-debug-non-zts-20220829
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
     working_dir: /var/www/html/
     restart: always
 
