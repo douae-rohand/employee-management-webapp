@@ -19,7 +19,7 @@ RUN a2enmod rewrite
 COPY app/ /var/www/html/
 
 # Étape 5 : définir le répertoire de travail (facultatif mais recommandé)
-WORKDIR /var/www/html/app/
+WORKDIR /var/www/html/
 
 # Étape 6 : installer Composer (gestionnaire de dépendances PHP)
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
