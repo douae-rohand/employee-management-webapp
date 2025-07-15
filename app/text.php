@@ -1,2 +1,2 @@
 <?php
-var_dump(getenv('DB_HOST'));
+echo getenv('DB_HOST');
