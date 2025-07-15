@@ -2,13 +2,18 @@
 FROM php:8.2-apache
 
 # Étape 2 : installer des extensions PHP nécessaires (comme mysqli, pdo, etc.)
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    && docker-php-ext-install mysqli pdo pdo_mysql zip gd
 
 # Étape 3 : activer mod_rewrite pour Apache si besoin (utile pour Laravel ou des .htaccess)
 RUN a2enmod rewrite
 
 # Étape 4 : copier le code de ton projet dans le conteneur
-COPY ../app /var/www/html/
+COPY app/ /var/www/html/
 
 # Étape 5 : définir le répertoire de travail (facultatif mais recommandé)
 WORKDIR /var/www/html/
