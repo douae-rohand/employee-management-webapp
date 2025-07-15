@@ -1,3 +1,6 @@
+# Étape 0 : étape "builder" pour composer
+FROM composer:latest AS composer
+
 # Étape 1 : choisir une image de base avec Apache + PHP
 FROM php:8.2-apache
 
@@ -26,3 +29,4 @@ RUN composer install
 
 # Port exposé (facultatif, car Apache écoute par défaut sur 80)
 EXPOSE 80
+
