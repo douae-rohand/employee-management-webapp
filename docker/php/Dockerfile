@@ -1,4 +1,4 @@
-# Étape 0 : étape "builder" pour composer
+
 FROM composer:latest AS composer
 
 # Étape 1 : choisir une image de base avec Apache + PHP
@@ -19,7 +19,7 @@ RUN a2enmod rewrite
 COPY app/ /var/www/html/
 
 # Étape 5 : définir le répertoire de travail (facultatif mais recommandé)
-WORKDIR /var/www/html/
+WORKDIR /var/www/html/app/
 
 # Étape 6 : installer Composer (gestionnaire de dépendances PHP)
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
