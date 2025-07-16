@@ -35,6 +35,7 @@ if ($tableCheck === 0) {
 
         while (($data = fgetcsv($handle, 1000, ";")) !== false) {
             if (count($data) < 17) {
+                echo "Ligne ignorée (colonnes insuffisantes) : " . implode(", ", $data) . "<br>";
                 continue;
             }
 
@@ -84,10 +85,16 @@ if ($tableCheck === 0) {
 
             if (!$success) {
                 $errorInfo = $stmt->errorInfo();
-            } 
+                echo "Erreur insertion : " . implode(" | ", $errorInfo) . "<br>";
+            } else {
+                echo "Insertion OK pour matricule: " . htmlspecialchars($insertData['matricule']) . "<br>";
+            }
         }
 
         fclose($handle);
+        echo "Import terminé.<br>";
+    } else {
+        echo "Impossible d'ouvrir le fichier CSV.<br>";
     }
 }
 
