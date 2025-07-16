@@ -12,7 +12,7 @@ if ($tableCheck === 0) {
             prenom VARCHAR(50) NOT NULL,
             CIN VARCHAR(20) NOT NULL,
             badge VARCHAR(50),
-            NUMCNSS VARCHAR(20) NOT NULL,
+            NUMCNSS VARCHAR(20) DEFAULT NULL,
             dateNaissance DATE,
             dateEmbauche DATE,
             dateRetrait_Demission DATE DEFAULT NULL,
