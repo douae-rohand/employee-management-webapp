@@ -28,37 +28,44 @@ $sql = "
     ";
     $pdo->exec($sql);
 
-    // Lire le fichier CSV
+        // Lire le fichier CSV
     if (($handle = fopen("uploads/personnels.csv", "r")) !== false) {
-        // Lire la première ligne (en-têtes si besoin)
+        // Lire la première ligne (en-têtes)
         fgetcsv($handle, 1000, ",");
 
         while (($data = fgetcsv($handle, 1000, ",")) !== false) {
-            // Adapter en fonction des colonnes
+            // Vérifier le nombre de colonnes (doit être au moins 17)
+            if (count($data) < 17) {
+                continue; // ignorer la ligne incomplète
+            }
+
             $insertData = [
-                'nom' => $data[0],
-                'prenom' => $data[1],
-                'CIN' => $data[2],
-                'badge' => $data[3],
-                'NUMCNSS' => $data[4],
-                'dateNaissance' => $data[5],
-                'dateEmbauche' => $data[6],
-                'dateRetrait_Demission' => $data[7],
-                'departement' => $data[8],
-                'responsable' => $data[9],
-                'categorie' => $data[10],
-                'fonctionService' => $data[11],
-                'salaireHeure' => $data[12],
-                'Banque' => $data[13],
-                'numCompte' => $data[14],
-                'photo' => $data[15],
+                'matricule' => $data[0],
+                'nom' => $data[1],
+                'prenom' => $data[2],
+                'CIN' => $data[3],
+                'badge' => $data[4],
+                'NUMCNSS' => $data[5],
+                'dateNaissance' => $data[6],
+                'dateEmbauche' => $data[7],
+                'dateRetrait_Demission' => $data[8],
+                'departement' => $data[9],
+                'responsable' => $data[10],
+                'categorie' => $data[11],
+                'fonctionService' => $data[12],
+                'salaireHeure' => $data[13],
+                'Banque' => $data[14],
+                'numCompte' => $data[15],
+                'photo' => $data[16],
             ];
 
             // Préparer et insérer
-            $sql = "INSERT INTO employes (nom, prenom, CIN, badge, NUMCNSS, dateNaissance, dateEmbauche, dateRetrait_Demission, departement, responsable, categorie, fonctionService, salaireHeure, Banque, numCompte, photo) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $pdo->prepare($sql);
+            $sqlInsert = "INSERT INTO employes (matricule, nom, prenom, CIN, badge, NUMCNSS, dateNaissance, dateEmbauche, dateRetrait_Demission, departement, responsable, categorie, fonctionService, salaireHeure, Banque, numCompte, photo)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            $stmt = $pdo->prepare($sqlInsert);
             $stmt->execute([
+                $insertData['matricule'],
                 $insertData['nom'],
                 $insertData['prenom'],
                 $insertData['CIN'],
@@ -77,6 +84,7 @@ $sql = "
                 $insertData['photo'],
             ]);
         }
+
         fclose($handle);
         echo "Import terminé !";
     } else {
