@@ -21,7 +21,7 @@
     <input type="text" name="prenom" value="<?= htmlspecialchars($employe['prenom'] ?? '') ?>" required><br><br>
 
     <label>CIN:</label><br>
-    <input type="date" name="CIN" value="<?= htmlspecialchars($employe['CIN'] ?? '') ?>"><br><br>
+    <input type="text" name="CIN" value="<?= htmlspecialchars($employe['CIN'] ?? '') ?>"><br><br>
 
     <label>Badge:</label><br>
     <input type="text" name="badge" value="<?= htmlspecialchars($employe['badge'] ?? '') ?>"><br><br>
