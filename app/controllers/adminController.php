@@ -40,6 +40,25 @@ switch ($action) {
         }
         $vue = 'views/admin/editAdmin.php';
         break;
+    
+    case 'deleteAdmin':
+        if (!isset($_SESSION['id'])) {     // id ici c'est l'id d'admin
+            header('Location: index.php?page=login');
+            exit;
+        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $admin = Admin::getById($_SESSION['id']);
+
+            if (empty($_POST['confirm_password']) || !password_verify($_POST['confirm_password'], $admin['password'])) {
+                die("Mot de passe incorrect. Suppression non autorisée.");
+            }
+
+            Admin::deleteById($_SESSION['id']);
+            session_destroy();
+            header("Location: index.php?page=login");
+            exit;
+        }
+        break;
 
     case 'forgotPassword':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

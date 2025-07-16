@@ -41,6 +41,14 @@ class Admin {
         ]);
     }
 
+    public static function deleteById($id){
+        global $pdo;
+        $sql = "DELETE FROM admin WHERE id = ?";
+        $stmt = $pdo->prepare($sql );
+        return $stmt->execute([$id]);
+    }
+
+
     public static function getByEmail($email) {
         global $pdo;
         $stmt = $pdo->prepare("SELECT * FROM admin WHERE email = ?");

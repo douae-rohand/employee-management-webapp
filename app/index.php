@@ -64,6 +64,10 @@ switch ($page) {
         $_GET['action'] = 'editAdmin';
         include 'controllers/adminController.php';
         break;
+    case 'deleteAdmin':
+        $_GET['action'] = 'deleteAdmin';
+        include 'controllers/adminController.php';
+        break;
     case 'forgotPassword':
         $_GET['action'] = 'forgotPassword';
         include 'controllers/adminController.php';

@@ -16,15 +16,13 @@
     <input type="email" name="email" value="<?= htmlspecialchars($_SESSION['email'] ?? '') ?>"><br><br>
 
     <div id="confirmPasswordContainer" style="display: none;">
-        <label>Confirmer mot de passe:</label><br>
+        <label>Entrer votre mot de passe:</label><br>
         <input type="password" name="confirm_password"><br>
         <a href="index.php?page=forgotPassword">Mot de passe oublié ?</a><br><br>
     </div>
 
     <button type="button" onclick="askPassword()">Enregistrer</button>
     <button type="submit" id="finalSubmit" style="display: none;">Confirmer</button>
-    </form>
-
     <script src="assets/js/editAdmin.js"></script>
 
     <h4>Changer le mot de passe</h4>

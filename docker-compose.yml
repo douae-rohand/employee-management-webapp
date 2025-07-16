@@ -2,7 +2,7 @@ services:
   php:
     image: douae01/php_app:latest
     container_name: app_php
-    volumes:
+    volumes: 
       - ./app:/var/www/html/
     ports:
       - "${APP_PORT}:80"
@@ -30,7 +30,7 @@ services:
     volumes:
       #sauvegarde toutes les données de DB dans un volume
       - ${DB_VOLUME_NAME}:/var/lib/mysql
-      - ./docker/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
+      - ./docker/mariadb/custom.cnf:/etc/mysql/conf.d/custom.cnf
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

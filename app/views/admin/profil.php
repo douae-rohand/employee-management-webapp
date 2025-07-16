@@ -15,4 +15,16 @@ include 'includes/header.php';
 
 <a href="index.php?page=editAdmin"><button>Modifier</button></a>
 
+<form method="POST" action="index.php?page=deleteAdmin">
+    <div id="confirmPasswordContainer" style="display: none;">
+            <label>Entrer votre mot de passe:</label><br>
+            <input type="password" name="confirm_password"><br>
+            <a href="index.php?page=forgotPassword">Mot de passe oublié ?</a><br><br>
+    </div>
+
+    <button type="button" onclick="askPassword()">Supprimer mon compte</button>
+    <button type="submit" id="finalSubmit" style="display: none;">Confirmer</button>
+    <script src="assets/js/editAdmin.js"></script>
+</form>
+
 <?php include 'includes/footer.php';?>

@@ -55,7 +55,7 @@ class Employe {
         }
 
        
-        $sql = "INSERT INTO employes (matricule,nom,prenom,CIN,badge,NUMCNSS,dateNaissance,dateEmbauche,dateRetrait_Demission,departement,responsable,categorie,fonctionService,salaireHeure,Banque,numCompte,photo)
+        $sql = "INSERT INTO employes (matricule, nom, prenom, CIN, badge, NUMCNSS, dateNaissance, dateEmbauche, dateRetrait_Demission, departement,responsable, categorie, fonctionService, salaireHeure, Banque, numCompte, photo)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
         return $stmt->execute([
@@ -108,7 +108,7 @@ class Employe {
             $data['salaireHeure'] ?? null,
             $data['Banque'] ?? null,
             $data['numCompte'] ?? null,
-            $photo ?? null,
+            $data['photo'] ?? null,
             $data['matricule']
         ]);
     }
