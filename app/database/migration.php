@@ -10,16 +10,16 @@ $sql = "
         matricule VARCHAR(50) PRIMARY KEY,
         nom VARCHAR(50) NOT NULL,
         prenom VARCHAR(50) NOT NULL,
+        CIN VARCHAR(20) NOT NULL,
         badge VARCHAR(50),
+        NUMCNSS VARCHAR(20) NOT NULL,
         dateNaissance DATE,
         dateEmbauche DATE,
-        dateRetrait_Demission DATE,
+        dateRetrait_Demission DATE DEFAULT NULL,
         departement VARCHAR(50),
         responsable VARCHAR(50),
         categorie VARCHAR(50),
         fonctionService VARCHAR(50),
-        CIN VARCHAR(20) NOT NULL,
-        NUMCNSS VARCHAR(20) NOT NULL,
         salaireHeure DECIMAL(10, 2) DEFAULT NULL,
         Banque VARCHAR(50) DEFAULT NULL,
         numCompte VARCHAR(50) DEFAULT NULL,
@@ -27,6 +27,61 @@ $sql = "
     );
     ";
     $pdo->exec($sql);
+
+    // Lire le fichier CSV
+    if (($handle = fopen("uploads/personnels.csv", "r")) !== false) {
+        // Lire la première ligne (en-têtes si besoin)
+        fgetcsv($handle, 1000, ",");
+
+        while (($data = fgetcsv($handle, 1000, ",")) !== false) {
+            // Adapter en fonction des colonnes
+            $insertData = [
+                'nom' => $data[0],
+                'prenom' => $data[1],
+                'CIN' => $data[2],
+                'badge' => $data[3],
+                'NUMCNSS' => $data[4],
+                'dateNaissance' => $data[5],
+                'dateEmbauche' => $data[6],
+                'dateRetrait_Demission' => $data[7],
+                'departement' => $data[8],
+                'responsable' => $data[9],
+                'categorie' => $data[10],
+                'fonctionService' => $data[11],
+                'salaireHeure' => $data[12],
+                'Banque' => $data[13],
+                'numCompte' => $data[14],
+                'photo' => $data[15],
+            ];
+
+            // Préparer et insérer
+            $sql = "INSERT INTO employes (nom, prenom, CIN, badge, NUMCNSS, dateNaissance, dateEmbauche, dateRetrait_Demission, departement, responsable, categorie, fonctionService, salaireHeure, Banque, numCompte, photo) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                $insertData['nom'],
+                $insertData['prenom'],
+                $insertData['CIN'],
+                $insertData['badge'],
+                $insertData['NUMCNSS'],
+                $insertData['dateNaissance'],
+                $insertData['dateEmbauche'],
+                $insertData['dateRetrait_Demission'],
+                $insertData['departement'],
+                $insertData['responsable'],
+                $insertData['categorie'],
+                $insertData['fonctionService'],
+                $insertData['salaireHeure'],
+                $insertData['Banque'],
+                $insertData['numCompte'],
+                $insertData['photo'],
+            ]);
+        }
+        fclose($handle);
+        echo "Import terminé !";
+    } else {
+        echo "Impossible d'ouvrir le fichier.";
+    }
 }
 
 // admin

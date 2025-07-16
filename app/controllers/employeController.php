@@ -54,12 +54,12 @@ switch ($action) {
         break;
 
     case 'edit':
-        if (!isset($_GET['matricule'])) {
+        $matricule = $_GET['matricule'] ?? null;
+        if (!isset($matricule)) {
             header('Location: index.php?page=listEmployes');
             exit;
         }
-
-        $matricule = $_GET['matricule'];
+        
         $employe = Employe::getByMatricule($matricule);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -80,18 +80,24 @@ switch ($action) {
                 'matricule' => $matricule,
                 'nom' => $_POST['nom'],
                 'prenom' => $_POST['prenom'],
+                'CIN' => $_POST['CIN'],
                 'badge' => $_POST['badge'],
+                'NUMCNSS' => $_POST['NUMCNSS'],
                 'dateNaissance' => $_POST['dateNaissance'],
                 'dateEmbauche' => $_POST['dateEmbauche'],
+                'dateRetrait_Demission' => $_POST['dateRetrait_Demission'] ?? null,
                 'departement' => $_POST['departement'],
                 'responsable' => $_POST['responsable'],
                 'categorie' => $_POST['categorie'],
                 'fonctionService' => $_POST['fonctionService'],
+                'salaireHeure' => $_POST['salaireHeure'] ?? null,
+                'Banque' => $_POST['Banque'] ?? null,
+                'numCompte' => $_POST['numCompte'] ?? null,
                 'photo' => $photo
             ];
 
             Employe::update($data);
-            header('Location: index.php?page=listEmployes');
+            header('Location: index.php?page=consulterEmploye&matricule=' . urlencode($matricule));
             exit;
         }
 

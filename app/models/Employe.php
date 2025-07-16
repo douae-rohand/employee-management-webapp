@@ -4,7 +4,7 @@ require_once 'database/connexion.php';
 class Employe {
     public static function getAll() {
         global $pdo;
-        $sql = "SELECT * FROM employes";
+        $sql = "SELECT matricule, nom, prenom, badge, dateNaissance, dateEmbauche, departement, responsable, categorie, fonctionService FROM employes";
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -54,21 +54,28 @@ class Employe {
             }
         }
 
-        $sql = "INSERT INTO employes (matricule,nom,prenom,badge,dateNaissance,dateEmbauche,departement,responsable,categorie,fonctionService,photo)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  ?)";
+       
+        $sql = "INSERT INTO employes (matricule,nom,prenom,CIN,badge,NUMCNSS,dateNaissance,dateEmbauche,dateRetrait_Demission,departement,responsable,categorie,fonctionService,salaireHeure,Banque,numCompte,photo)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
         return $stmt->execute([
             $data['matricule'],
             $data['nom'],
             $data['prenom'],
+            $data['CIN'],
             $data['badge'],
+            $data['NUMCNSS'],
             $data['dateNaissance'],
             $data['dateEmbauche'],
+            $data['dateRetrait_Demission'] ?? null,
             $data['departement'],
             $data['responsable'],
             $data['categorie'],
             $data['fonctionService'],
-            $photo
+            $data['salaireHeure'] ?? null,
+            $data['Banque'] ?? null,
+            $data['numCompte'] ?? null,
+            $photo ?? null
         ]);
     }
 
@@ -82,20 +89,26 @@ class Employe {
     public static function update($data) {
         global $pdo;
         $sql = "UPDATE employes 
-                SET nom = ?, prenom = ?, badge = ?, dateNaissance = ?, dateEmbauche = ?, departement = ?, responsable = ?, categorie = ?, fonctionService = ?, photo = ?
+                SET nom = ?, prenom = ?,CIN = ?, badge = ?, NUMCNSS = ?, dateNaissance = ?, dateEmbauche = ?, dateRetrait_Demission = ?, departement = ?, responsable = ?, categorie = ?, fonctionService = ?, salaireHeure= ?, Banque = ?, numCompte = ?, photo = ?
                 WHERE matricule = ?";
         $stmt = $pdo->prepare($sql);
         return $stmt->execute([
             $data['nom'],
             $data['prenom'],
+            $data['CIN'],
             $data['badge'],
+            $data['NUMCNSS'],
             $data['dateNaissance'],
             $data['dateEmbauche'],
+            $data['dateRetrait_Demission'] ?? null,
             $data['departement'],
             $data['responsable'],
             $data['categorie'],
             $data['fonctionService'],
-            $data['photo'] ?? null,
+            $data['salaireHeure'] ?? null,
+            $data['Banque'] ?? null,
+            $data['numCompte'] ?? null,
+            $photo ?? null,
             $data['matricule']
         ]);
     }

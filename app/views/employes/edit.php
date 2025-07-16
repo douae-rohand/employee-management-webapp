@@ -20,8 +20,14 @@
     <label>Prénom:</label><br>
     <input type="text" name="prenom" value="<?= htmlspecialchars($employe['prenom'] ?? '') ?>" required><br><br>
 
+    <label>CIN:</label><br>
+    <input type="date" name="CIN" value="<?= htmlspecialchars($employe['CIN'] ?? '') ?>"><br><br>
+
     <label>Badge:</label><br>
     <input type="text" name="badge" value="<?= htmlspecialchars($employe['badge'] ?? '') ?>"><br><br>
+
+    <label>N° CNSS:</label><br>
+    <input type="text" name="NUMCNSS" value="<?= htmlspecialchars($employe['NUMCNSS'] ?? '') ?>"><br><br>
 
     <label>Date Naissance:</label><br>
     <input type="date" name="dateNaissance" value="<?= htmlspecialchars($employe['dateNaissance'] ?? '') ?>"><br><br>
@@ -43,13 +49,7 @@
 
     <label>Fonction / Service:</label><br>
     <input type="text" name="fonctionService" value="<?= htmlspecialchars($employe['fonctionService'] ?? '') ?>"><br><br>
-
-    <label>CIN:</label><br>
-    <input type="date" name="CIN" value="<?= htmlspecialchars($employe['CIN'] ?? '') ?>"><br><br>
-
-    <label>N° CNSS:</label><br>
-    <input type="text" name="NUMCNSS" value="<?= htmlspecialchars($employe['NUMCNSS'] ?? '') ?>"><br><br>
-
+    
     <label>Salaire par heure:</label><br>
     <input type="text" name="salaireHeure" value="<?= htmlspecialchars($employe['salaireHeure'] ?? '') ?>"><br><br>
 

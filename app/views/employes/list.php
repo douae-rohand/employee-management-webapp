@@ -15,9 +15,9 @@
         <option value="dateNaissance">Date Naissance</option>
         <option value="dateEmbauche">Date Embauche</option>
         <option value="departement">Département</option>
-        <option value="respensable">Responsable</option>
+        <option value="responsable">Responsable</option>
         <option value="categorie">Catégorie</option>
-        <option value="functionService">Fonction/Service</option>
+        <option value="fonctionService">Fonction/Service</option>
     </select>
 
     <input type="text" name="valeur" placeholder="Valeur à rechercher" required>
@@ -40,10 +40,10 @@
         <th>Badge</th>
         <th>Date naissance</th>
         <th>Date embauche</th>
-        <th>departement</th>
-        <th>responsable</th>
-        <th>categorie</th>
-        <th>fonction /Service</th>
+        <th>Departement</th>
+        <th>Responsable</th>
+        <th>Categorie</th>
+        <th>Fonction /Service</th>
     </tr>
     <?php foreach ($employes as $emp): ?>
         <tr>
