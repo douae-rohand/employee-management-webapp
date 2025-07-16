@@ -80,7 +80,7 @@ switch ($page) {
         include 'controllers/logoutController.php';
         break;
     default:
-        include 'views/login.php';
+        include 'controllers/loginController.php';
         break;
 }
 ?>
