@@ -47,16 +47,16 @@
     </tr>
     <?php foreach ($employes as $emp): ?>
         <tr>
-            <td><?= htmlspecialchars($emp['matricule']) ?></td>
-            <td><?= htmlspecialchars($emp['nom']) ?></td>
-            <td><?= htmlspecialchars($emp['prenom']) ?></td>
-            <td><?= htmlspecialchars($emp['badge']) ?></td>
-            <td><?= htmlspecialchars($emp['dateNaissance']) ?></td>
-            <td><?= htmlspecialchars($emp['dateEmbauche']) ?></td>
-            <td><?= htmlspecialchars($emp['departement']) ?></td>
-            <td><?= htmlspecialchars($emp['responsable']) ?></td>
-            <td><?= htmlspecialchars($emp['categorie']) ?></td>
-            <td><?= htmlspecialchars($emp['fonctionService']) ?></td>
+            <td><?= htmlspecialchars($emp['matricule'] ?? '') ?></td>
+            <td><?= htmlspecialchars($emp['nom'] ?? '') ?></td>
+            <td><?= htmlspecialchars($emp['prenom'] ?? '') ?></td>
+            <td><?= htmlspecialchars($emp['badge'] ?? '') ?></td>
+            <td><?= htmlspecialchars($emp['dateNaissance'] ?? '') ?></td>
+            <td><?= htmlspecialchars($emp['dateEmbauche'] ?? '') ?></td>
+            <td><?= htmlspecialchars($emp['departement'] ?? '') ?></td>
+            <td><?= htmlspecialchars($emp['responsable'] ?? '') ?></td>
+            <td><?= htmlspecialchars($emp['categorie'] ?? '') ?></td>
+            <td><?= htmlspecialchars($emp['fonctionService'] ?? '') ?></td>
             
             <td>
                 <a href="index.php?page=consulterEmploye&matricule=<?= $emp['matricule'] ?>">Consulter</a>  
