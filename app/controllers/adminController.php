@@ -62,7 +62,7 @@ switch ($action) {
             $mail = new PHPMailer(true);
 
             try {
-                $mail->isSMTP(); //Indique à PHPMailer d’utiliser le protocole SMTP
+                /*$mail->isSMTP(); //Indique à PHPMailer d’utiliser le protocole SMTP
                 $mail->Host = 'smtp.gmail.com';  //Serveur SMTP de Gmail
                 $mail->SMTPAuth = true;  //Active l'authentification SMTP
                 $mail->Username = 'douaetest14@gmail.com';      // Ton email
@@ -72,13 +72,12 @@ switch ($action) {
                 $mail->Port = 587; // Port SMTP de Gmail
                 
                 $mail->setFrom('douaetest14@gmail.com', 'douae'); //L’expéditeur
-                $mail->addAddress($admin['email'], $admin['nom']);  //Destinataire
+                $mail->addAddress($admin['email'], $admin['nom']);  //Destinataire*/
 
 
-                /*$mail->isSMTP(); //Indique à PHPMailer d’utiliser le protocole SMTP
+                $mail->isSMTP(); //Indique à PHPMailer d’utiliser le protocole SMTP
                 $mail->Host = getenv('MAIL_HOST');  //Serveur SMTP de Gmail
                 $mail->SMTPAuth = true;  //Active l'authentification SMTP
-                echo (getenv('MAIL_USERNAME'));
                 $mail->Username = getenv('MAIL_USERNAME');      // Ton email
                 $mail->Password = getenv('MAIL_PASSWORD');          // Mot de passe application (SMTP password)
                 $mail->SMTPSecure = getenv('MAIL_ENCRYPTION'); // Sécurise la connexion avec TLS
@@ -87,7 +86,7 @@ switch ($action) {
 
 
                 $mail->setFrom(getenv('MAIL_FROM_ADDRESS'), getenv('MAIL_FROM_NAME')); //L’expéditeur
-                $mail->addAddress($admin['email'], $admin['nom']);  //Destinataire'*/
+                $mail->addAddress($admin['email'], $admin['nom']);  //Destinataire
 
                 
                 //Construire le contenu de mail
