@@ -1,6 +1,21 @@
 <?php
 require 'connexion.php';
 
+function DateFormat($dateString) {
+    $dateString = trim($dateString);
+
+    // Si vide, on retourne NULL
+    if ($dateString === '') {
+        return null;
+    }
+    // Essayer de créer une date valide
+    $date = date_create($dateString);
+    if ($date) {
+        return $date->format('Y-m-d');
+    }
+    return null;
+}
+
 // Employés
 $tableCheck = $pdo->query("SHOW TABLES LIKE 'employes'")->rowCount();  //rowCount() te donne le nombre de lignes retournées
 
@@ -39,26 +54,27 @@ if ($tableCheck === 0) {
                 continue;
             }
 
+            
             $insertData = [
-                'matricule' => $data[0],
-                'nom' => $data[1],
-                'prenom' => $data[2],
-                'CIN' => $data[3],
-                'badge' => $data[4],
-                'NUMCNSS' => $data[5],
-                'dateNaissance' => $data[6],
-                'dateEmbauche' => $data[7],
-                'dateRetrait_Demission' => $data[8],
-                'departement' => $data[9],
-                'responsable' => $data[10],
-                'categorie' => $data[11],
-                'fonctionService' => $data[12],
-                'salaireHeure' => $data[13],
-                'Banque' => $data[14],
-                'numCompte' => $data[15],
-                'photo' => $data[16],
+                'matricule' => trim($data[0]),
+                'nom' => trim($data[1]),
+                'prenom' => trim($data[2]),
+                'CIN' => trim($data[3]),
+                'badge' => trim($data[4]),
+                'NUMCNSS' => trim($data[5]),
+                'dateNaissance' => DateFormat($data[6]),
+                'dateEmbauche' => DateFormat($data[7]),
+                'dateRetrait_Demission' => DateFormat($data[8]),
+                'departement' => trim($data[9]),
+                'responsable' => trim($data[10]),
+                'categorie' => trim($data[11]),
+                'fonctionService' => trim($data[12]),
+                'salaireHeure' => $data[13] !== '' ? $data[13] : null,
+                'Banque' => trim($data[14]),
+                'numCompte' => trim($data[15]),
+                'photo' => trim($data[16]),
             ];
-
+            
             $sqlInsert = "INSERT INTO employes (matricule, nom, prenom, CIN, badge, NUMCNSS, dateNaissance, dateEmbauche, dateRetrait_Demission, departement, responsable, categorie, fonctionService, salaireHeure, Banque, numCompte, photo)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
