@@ -8,6 +8,8 @@ services:
       - "${APP_PORT}:80"
     depends_on:
       - db
+    env_file:
+      - .env
     environment:
       - PHP_EXTENSION_DIR=/usr/local/lib/php/extensions/no-debug-non-zts-20220829
       - DB_HOST=${DB_HOST}
