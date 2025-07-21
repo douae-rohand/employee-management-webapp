@@ -1,0 +1,107 @@
+body {
+    background: #fff;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.liste-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.liste-card h2 {
+    color: #0a2342;
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-size: 2.1rem;
+}
+
+.form-select, .form-control {
+    border-radius: 16px;
+    border: 1.5px solid #dbe2ef;
+    width: 300px;
+    margin-bottom: 12px;
+    padding: 10px 16px;
+}
+
+.btn-chercher{
+    background: #0a2342;
+    color: #fff;
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 24px;
+    font-weight: 500;
+    border: none;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    margin-bottom: 15px;
+}
+
+.btn-add {
+    background: #0a2342;
+    color: #fff;
+    border-radius: 24px;
+    font-weight: 600;
+    border: none;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.btn-primary:hover, .btn-add:hover, .btn-chercher:hover {
+    background: #163d6b;
+    color: #fff;
+}
+
+.btn-danger {
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.table {
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 32px;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.07);
+}
+
+.table th {
+    background: #0a2342;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 10px;
+}
+
+.table td {
+    vertical-align: middle;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fff;
+    font-size: 1rem;
+    padding: 10px 10px;
+}
+
+.btn-primary{
+    background: #0a2342;
+    color: #fff;
+    border: none;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.btn-action {
+    margin-right: 3px;
+    border-radius: 100%;
+    font-size: 1rem;
+    padding: 5px 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+@media (max-width: 1400px) {
+    .liste-card { padding: 18px 2vw; width: 100vw; }
+    .table { font-size: 0.97rem; }
+}

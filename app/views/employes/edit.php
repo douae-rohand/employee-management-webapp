@@ -1,65 +1,89 @@
 <?php include 'includes/header.php'; ?>
-
-<h2>Modifier un employé</h2>
-
-<form method="POST" action="index.php?page=editEmploye&matricule=<?= htmlspecialchars($employe['matricule']) ?>" enctype="multipart/form-data">
-    <label>Photo actuelle:</label><br>
-    <?php if ($employe['photo']): ?>
-        <img src="uploads/employesPhoto/<?= htmlspecialchars($employe['photo']) ?>" width="120">
-    <?php else: ?>
-        <p>Aucune photo</p>
-    <?php endif; ?>
-    <br><br>
-
-    <label>Changer la photo:</label><br>
-    <input type="file" name="photo" accept="image/*"><br><br>
-
-    <label>Nom:</label><br>
-    <input type="text" name="nom" value="<?= htmlspecialchars($employe['nom'] ?? '') ?>" required><br><br>
-
-    <label>Prénom:</label><br>
-    <input type="text" name="prenom" value="<?= htmlspecialchars($employe['prenom'] ?? '') ?>" required><br><br>
-
-    <label>CIN:</label><br>
-    <input type="text" name="CIN" value="<?= htmlspecialchars($employe['CIN'] ?? '') ?>"><br><br>
-
-    <label>Badge:</label><br>
-    <input type="text" name="badge" value="<?= htmlspecialchars($employe['badge'] ?? '') ?>"><br><br>
-
-    <label>N° CNSS:</label><br>
-    <input type="text" name="NUMCNSS" value="<?= htmlspecialchars($employe['NUMCNSS'] ?? '') ?>"><br><br>
-
-    <label>Date Naissance:</label><br>
-    <input type="date" name="dateNaissance" value="<?= htmlspecialchars($employe['dateNaissance'] ?? '') ?>"><br><br>
-
-    <label>Date Embauche:</label><br>
-    <input type="date" name="dateEmbauche" value="<?= htmlspecialchars($employe['dateEmbauche'] ?? '') ?>"><br><br>
-
-    <label>Date retrait / démission:</label><br>
-    <input type="date" name="dateRetrait_Demission" value="<?= htmlspecialchars($employe['dateRetrait_Demission'] ?? '') ?>"><br><br>
-
-    <label>Département:</label><br>
-    <input type="text" name="departement" value="<?= htmlspecialchars($employe['departement'] ?? '') ?>"><br><br>
-
-    <label>Responsable:</label><br>
-    <input type="text" name="responsable" value="<?= htmlspecialchars($employe['responsable'] ?? '') ?>"><br><br>
-
-    <label>Catégorie:</label><br>
-    <input type="text" name="categorie" value="<?= htmlspecialchars($employe['categorie'] ?? '') ?>"><br><br>
-
-    <label>Fonction / Service:</label><br>
-    <input type="text" name="fonctionService" value="<?= htmlspecialchars($employe['fonctionService'] ?? '') ?>"><br><br>
-    
-    <label>Salaire par heure:</label><br>
-    <input type="text" name="salaireHeure" value="<?= htmlspecialchars($employe['salaireHeure'] ?? '') ?>"><br><br>
-
-    <label>Banque:</label><br>
-    <input type="text" name="Banque" value="<?= htmlspecialchars($employe['Banque'] ?? '') ?>"><br><br>
-
-    <label>N° compte:</label><br>
-    <input type="text" name="numCompte" value="<?= htmlspecialchars($employe['numCompte'] ?? '') ?>"><br><br>
-
-    <button type="submit">Modifier</button>
-</form>
-
-<?php include 'includes/footer.php'; ?>
+<link rel="stylesheet" href="assets/css/add.css">
+<div class="add-container">
+  <div class="add-card">
+    <h2>Modifier un Employé</h2>
+    <form method="POST" action="index.php?page=editEmploye&matricule=<?= htmlspecialchars($employe['matricule']) ?>" enctype="multipart/form-data">
+      <div class="text-center mb-4">
+        <label for="photo" class="form-label">Photo de l'employé</label><br>
+        <?php if (!empty($employe['photo'])): ?>
+            <img src="uploads/employesPhoto/<?= htmlspecialchars($employe['photo']) ?>" alt="Photo" width="150" height="150"  class="mb-2 rounded">
+        <?php else: ?>
+            <img src="uploads/no profile.jpeg" alt="Photo" width="150" height="150" class="mb-2 rounded">
+        <?php endif; ?>
+        <input type="file" name="photo" id="photo" accept="image/*" class="form-control mx-auto mt-2" style="max-width:260px;">
+      </div>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Matricule</label>
+          <input type="text" name="matricule" class="form-control" value="<?= htmlspecialchars($employe['matricule'] ?? '') ?>" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Nom</label>
+          <input type="text" name="nom" class="form-control" value="<?= htmlspecialchars($employe['nom'] ?? '') ?>" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Prénom</label>
+          <input type="text" name="prenom" class="form-control" value="<?= htmlspecialchars($employe['prenom'] ?? '') ?>" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Badge</label>
+          <input type="text" name="badge" class="form-control" value="<?= htmlspecialchars($employe['badge'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">CIN</label>
+          <input type="text" name="CIN" class="form-control" value="<?= htmlspecialchars($employe['CIN'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">N° CNSS</label>
+          <input type="text" name="NUMCNSS" class="form-control" value="<?= htmlspecialchars($employe['NUMCNSS'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Date Naissance</label>
+          <input type="date" name="dateNaissance" class="form-control" value="<?= htmlspecialchars($employe['dateNaissance'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Date Embauche</label>
+          <input type="date" name="dateEmbauche" class="form-control" value="<?= htmlspecialchars($employe['dateEmbauche'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Date retrait / démission</label>
+          <input type="date" name="dateRetrait_Demission" class="form-control" value="<?= htmlspecialchars($employe['dateRetrait_Demission'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Département</label>
+          <input type="text" name="departement" class="form-control" value="<?= htmlspecialchars($employe['departement'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Responsable</label>
+          <input type="text" name="responsable" class="form-control" value="<?= htmlspecialchars($employe['responsable'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Catégorie</label>
+          <input type="text" name="categorie" class="form-control" value="<?= htmlspecialchars($employe['categorie'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Fonction / Service</label>
+          <input type="text" name="fonctionService" class="form-control" value="<?= htmlspecialchars($employe['fonctionService'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Salaire par heure</label>
+          <input type="text" name="salaireHeure" class="form-control" value="<?= htmlspecialchars($employe['salaireHeure'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Banque</label>
+          <input type="text" name="Banque" class="form-control" value="<?= htmlspecialchars($employe['Banque'] ?? '') ?>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">N° Compte</label>
+          <input type="text" name="numCompte" class="form-control" value="<?= htmlspecialchars($employe['numCompte'] ?? '') ?>">
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-add"><i class="bi bi-pencil"></i> Modifier</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="assets/js/add.js"></script>
+<?php include 'includes/footer.php';?>

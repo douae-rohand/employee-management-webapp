@@ -5,26 +5,44 @@ if (!isset($_SESSION['id'])) {
 }
 include 'includes/header.php';
 ?>
-
-<h2>Mon profil</h2>
-
-<p><strong>Nom:</strong> <?= htmlspecialchars($_SESSION['nom'] ?? '') ?></p>
-<p><strong>Prénom:</strong> <?= htmlspecialchars($_SESSION['prenom'] ?? '') ?></p>
-<p><strong>Username:</strong> <?= htmlspecialchars($_SESSION['username'] ?? '') ?></p>
-<p><strong>Email:</strong> <?= htmlspecialchars($_SESSION['email'] ?? '') ?></p>
-
-<a href="index.php?page=editAdmin"><button>Modifier</button></a>
-
-<form method="POST" action="index.php?page=deleteAdmin">
-    <div id="confirmPasswordContainer" style="display: none;">
-            <label>Entrer votre mot de passe:</label><br>
-            <input type="password" name="confirm_password"><br>
-            <a href="index.php?page=forgotPassword">Mot de passe oublié ?</a><br><br>
+<link rel="stylesheet" href="assets/css/consulter.css">
+<link rel="stylesheet" href="assets/css/add.css ">
+<div class="consulter-container" >
+    <div class="consulter-card">
+        <div class="text-center">
+            <img src="uploads/temasaLogo.jpeg" alt="Photo" class="rounded-circle shadow" width="100" height="100" style="margin-bottom: 15px;">
+        </div>
+        <h2>Bienvenue dans votre espace, <span style="color: #163d6b; font-weight: bold;"><?php echo htmlspecialchars($_SESSION['prenom'] ?? ''); ?></span></h2>
+        <table class="consulter-table">
+            <tr><th>Username</th><td><?php echo htmlspecialchars($_SESSION['username'] ?? ''); ?></td></tr>
+            <tr><th>Nom</th><td><?php echo htmlspecialchars($_SESSION['nom'] ?? ''); ?></td></tr>
+            <tr><th>Prénom</th><td><?php echo htmlspecialchars($_SESSION['prenom'] ?? ''); ?></td></tr>
+            <tr><th>Email</th><td><?php echo htmlspecialchars($_SESSION['email'] ?? ''); ?></td></tr>
+        </table>
     </div>
-
-    <button type="button" onclick="askPassword()">Supprimer mon compte</button>
-    <button type="submit" id="finalSubmit" style="display: none;">Confirmer</button>
-    <script src="assets/js/editAdmin.js"></script>
-</form>
-
+    <div class="consulter-actions mt-0" >
+        <a href="index.php?page=editAdmin" class="btn-consulter"><i class="bi bi-pencil"></i></a>
+    </div>
+    <div>
+        <form method="POST" action="index.php?page=deleteAdmin">
+            <div class="text-center mt-2">
+                <button type="button" id="saveButton" class="btn btn-add" onclick="askPassword()">Supprimer mon compte</button><br>
+            </div>
+            <div id="confirmPasswordContainer" style="display: none;" class="mt-2">
+                <div class="col-md-8 mx-auto text-center">
+                    <label class="form-label">Entrer votre mot de passe</label>
+                    <input type="password" name="confirm_password" class="form-control" required>
+                </div>
+                <div class="text-center mt-2">
+                    <a href="index.php?page=forgotPassword">Mot de passe oublié ?</a>
+                </div>
+                <div class="text-center mt-2">
+                    <button type="submit" id="finalSubmit" class="btn btn-add">Confirmer</button><br>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="assets/js/editAdmin.js"></script>
+<script src="assets/js/consulter.js"></script>
 <?php include 'includes/footer.php';?>

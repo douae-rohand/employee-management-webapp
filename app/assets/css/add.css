@@ -1,0 +1,74 @@
+body {
+    background: #fff;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.add-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 35px;
+}
+
+.add-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(99, 142, 188, 0.418);
+    padding: 32px 32px 24px 32px;
+    width: 520px;
+    max-width: 98vw;
+}
+
+.add-card h2, .add-card h3 {
+    color: #0a2342;
+    font-weight: 700;
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.form-label {
+    color: #0a2342;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.form-control {
+    border-radius: 14px;
+    border: 1px solid #dbe2ef;
+    margin-bottom: 14px;
+    padding: 8px 14px;
+    font-size: 1rem;
+}
+
+.btn-add {
+    background: #0a2342;
+    color: #fff;
+    border-radius: 18px;
+    font-weight: 600;
+    font-size: 1.01rem;
+    padding: 8px 22px;
+    border: none;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-add:hover { 
+    background: #163d6b; 
+    color: #fff;
+}
+
+
+input[type="file"] {
+    margin-bottom: 14px;
+}
+
+@media (max-width: 700px) {
+    .add-card { padding: 12px 2vw; width: 100vw; }
+} 

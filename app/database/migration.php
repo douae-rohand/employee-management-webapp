@@ -79,7 +79,7 @@ if ($tableCheck === 0) {
         CREATE TABLE absences (
             id INT AUTO_INCREMENT PRIMARY KEY,
             matricule VARCHAR(50),
-            type ENUM('justifiee', 'nonjustifiee') NOT NULL,
+            type VARCHAR(50) NOT NULL,
             dateDebut DATE NOT NULL,
             dateFin DATE NOT NULL,
             commentaire TEXT,

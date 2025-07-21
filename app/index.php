@@ -10,12 +10,9 @@ require_once 'database/connexion.php';
 require_once 'database/migration.php';
 
 // Déterminer quelle page appeler
-$page = $_GET['page'] ?? 'home';
+$page = $_GET['page'] ?? 'listEmployes';
 
 switch ($page) {
-    case 'home':
-        include 'views/home.php';
-        break;
     case 'listEmployes':
         $_GET['action'] = 'list';
         include 'controllers/employeController.php';

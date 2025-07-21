@@ -1,0 +1,169 @@
+body {
+    background: #fff;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.consulter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 32px;
+}
+
+.consulter-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(99, 142, 188, 0.418);
+    padding: 32px 32px 24px 32px;
+    width: 650px;
+    max-width: 98vw;
+    margin-bottom: 32px;
+}
+
+.consulter-card h2, .consulter-card h3 {
+    color: #0a2342;
+    font-weight: 700;
+    font-size: 1.7rem;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.consulter-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+.consulter-photo img {
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(99, 142, 188, 0.418);
+    width: 150px;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* Infos employé : 2 par ligne */
+.consulter-table {
+    width: 100%;
+    margin: 0 auto 18px auto;
+    border-collapse: separate;
+    border-spacing: 20px 10px;
+}
+.consulter-table th, .consulter-table td {
+    background: #f5f7fa;
+    color: #0a2342;
+    font-size: 1.01rem;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    text-align: left;
+}
+.consulter-table th {
+    font-weight: 600;
+    color: #163d6b;
+    width: 40%;
+}
+.consulter-table tr {
+    border-bottom: none;
+}
+
+/* Absences et attestations */
+.consulter-section {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(99, 142, 188, 0.418);
+    padding: 24px 24px 18px 24px;
+    width: 650px;
+    max-width: 98vw;
+    margin: 0 auto 32px auto;
+}
+.consulter-section h3 {
+    text-align: center;
+    color: #0a2342;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+.consulter-section .table {
+    background: #fff;
+    border-radius: 12px;
+    font-size: 0.98rem;
+    margin-bottom: 0;
+}
+.consulter-section .table th {
+    background: #0a2342;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    font-size: 1.01rem;
+    text-align: center;
+}
+.consulter-section .table td {
+    background: #f5f7fa;
+    color: #0a2342;
+    border: none;
+    text-align: center;
+    padding: 7px 8px;
+}
+.consulter-section .table tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.consulter-actions, .consulter-section .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+.consulter-section .btn {
+    background: #0a2342;
+    color: #fff;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1.01rem;
+    padding: 8px 18px;
+    border: none;
+    transition: background 0.2s;
+    box-shadow: 0 2px 12px rgba(99, 142, 188, 0.418);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-consulter{
+    background: #0a2342;
+    color: #fff;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1.01rem;
+    padding: 8px 18px;
+    border: none;
+    outline: none !important;
+    transition: background 0.2s;
+    box-shadow: 0 2px 12px rgba(99, 142, 188, 0.418);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-consulter:hover, .consulter-section .btn:hover { background: #163d6b; }
+
+.btn-danger {
+    background: #e74c3c !important;
+    color: #fff !important;
+}
+.btn-danger:hover {
+    background: #c0392b !important;
+}
+
+.text-center { 
+    text-align: center; 
+}
+
+
+@media (max-width: 800px) {
+    .consulter-card, .consulter-section { width: 99vw; padding: 10px 2vw; }
+    .consulter-table th, .consulter-table td { font-size: 0.97rem; }
+}

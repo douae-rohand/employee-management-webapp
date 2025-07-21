@@ -16,11 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['email'] = $admin['email'];
 
         // Rediriger vers la home
-        header("Location: index.php?page=home");
+        header("Location: index.php?page=listEmployes");
         exit;
     } else {
-        $error = "Nom d'utilisateur ou mot de passe incorrect.";
+        $error = "Nom d'utilisateur ou mot de passe incorrect";
     }
 }
-
 include 'views/login.php';
