@@ -13,19 +13,19 @@ include 'includes/header.php';
             <img src="uploads/temasaLogo.jpeg" alt="Photo" class="rounded-circle shadow" width="100" height="100" style="margin-bottom: 15px;">
         </div>
         <h2>Bienvenue dans votre espace, <span style="color: #163d6b; font-weight: bold;"><?php echo htmlspecialchars($_SESSION['prenom'] ?? ''); ?></span></h2>
-        <table class="consulter-table">
+        <table class="consulter-table mt-3">
             <tr><th>Username</th><td><?php echo htmlspecialchars($_SESSION['username'] ?? ''); ?></td></tr>
             <tr><th>Nom</th><td><?php echo htmlspecialchars($_SESSION['nom'] ?? ''); ?></td></tr>
             <tr><th>Prénom</th><td><?php echo htmlspecialchars($_SESSION['prenom'] ?? ''); ?></td></tr>
             <tr><th>Email</th><td><?php echo htmlspecialchars($_SESSION['email'] ?? ''); ?></td></tr>
         </table>
-    </div>
-    <div class="consulter-actions mt-0" >
-        <a href="index.php?page=editAdmin" class="btn-consulter"><i class="bi bi-pencil"></i></a>
+        <div class="consulter-actions mt-0" >
+            <a href="index.php?page=editAdmin" class="btn-consulter"><i class="bi bi-pencil"></i></a>
+        </div>
     </div>
     <div>
         <form method="POST" action="index.php?page=deleteAdmin">
-            <div class="text-center mt-2">
+            <div class="text-center">
                 <button type="button" id="saveButton" class="btn btn-add" onclick="askPassword()">Supprimer mon compte</button><br>
             </div>
             <div id="confirmPasswordContainer" style="display: none;" class="mt-2">
