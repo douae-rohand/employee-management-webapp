@@ -28,7 +28,7 @@ include 'includes/header.php';
             <div class="text-center">
                 <button type="button" id="saveButton" class="btn btn-add" onclick="askPassword()">Supprimer mon compte</button><br>
             </div>
-            <div id="confirmPasswordContainer" style="display: none;" class="mt-2">
+            <div id="confirmPasswordContainer" style="display: none;">
                 <div class="col-md-8 mx-auto text-center">
                     <label class="form-label">Entrer votre mot de passe</label>
                     <input type="password" name="confirm_password" class="form-control" required>

@@ -41,7 +41,7 @@
       <h3>Absences</h3>
       <?php if (!empty($absences)) : ?>
         <div class="table-responsive">
-          <table class="table align-middle">
+          <table class="table align-middle ">
             <thead>
               <tr>
                 <th>Type</th>
@@ -52,18 +52,20 @@
               </tr>
             </thead>
             <tbody>
-            <?php foreach ($absences as $absence): ?>
-              <tr>
-                <td><?= htmlspecialchars($absence['type']) ?></td>
-                <td><?= htmlspecialchars($absence['dateDebut']) ?></td>
-                <td><?= htmlspecialchars($absence['dateFin']) ?></td>
-                <td><?= htmlspecialchars($absence['commentaire']) ?></td>
-                <td class="d-flex justify-content-center gap-1">
-                  <a href="index.php?page=editAbsence&id=<?= $absence['id'] ?>&employe=<?= urlencode($employe['matricule']) ?>" class="btn-consulter"><i class="bi bi-pencil"></i></a>
-                  <a href="index.php?page=deleteAbsence&id=<?= $absence['id'] ?>&employe=<?= urlencode($employe['matricule']) ?>" class="btn-danger btn-consulter" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');"><i class="bi bi-trash"></i></a>
-                </td>
-              </tr>
-            <?php endforeach; ?>
+              <?php foreach ($absences as $absence): ?>
+                <tr>
+                  <td><?= htmlspecialchars($absence['type']) ?></td>
+                  <td><?= htmlspecialchars($absence['dateDebut']) ?></td>
+                  <td><?= htmlspecialchars($absence['dateFin']) ?></td>
+                  <td><?= htmlspecialchars($absence['commentaire']) ?></td>
+                  <td class="align-middle text-center">
+                    <div class="d-flex justify-content-center gap-2">
+                      <a href="index.php?page=editAbsence&id=<?= $absence['id'] ?>&employe=<?= urlencode($employe['matricule']) ?>" class="btn-consulter2 actions"><i class="bi bi-pencil"></i></a>
+                      <a href="index.php?page=deleteAbsence&id=<?= $absence['id'] ?>&employe=<?= urlencode($employe['matricule']) ?>" class="btn-danger btn-consulter2 actions" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');"><i class="bi bi-trash"></i></a>
+                    </div>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>

@@ -3,6 +3,16 @@
 <div class="add-container">
   <div class="add-card">
     <h2>Modifier un Employé</h2>
+    <?php if (!empty($_SESSION['form_errors'])): ?>
+      <div class="alert alert-danger">
+          <ul>
+            <?php foreach ($_SESSION['form_errors'] as $error): ?>
+              <li><?= htmlspecialchars($error) ?></li>
+            <?php endforeach; ?>
+          </ul>
+      </div>
+    <?php unset($_SESSION['form_errors']); ?>
+    <?php endif; ?>
     <form method="POST" action="index.php?page=editEmploye&matricule=<?= htmlspecialchars($employe['matricule']) ?>" enctype="multipart/form-data">
       <div class="text-center mb-4">
         <label for="photo" class="form-label">Photo de l'employé</label><br>
@@ -16,7 +26,7 @@
       <div class="row g-3">
         <div class="col-md-6">
           <label class="form-label">Matricule</label>
-          <input type="text" name="matricule" class="form-control" value="<?= htmlspecialchars($employe['matricule'] ?? '') ?>" required>
+          <input type="number" name="matricule" min="0" step="1" class="form-control" value="<?= htmlspecialchars($employe['matricule'] ?? '') ?>" required>
         </div>
         <div class="col-md-6">
           <label class="form-label">Nom</label>
@@ -27,20 +37,20 @@
           <input type="text" name="prenom" class="form-control" value="<?= htmlspecialchars($employe['prenom'] ?? '') ?>" required>
         </div>
         <div class="col-md-6">
-          <label class="form-label">Badge</label>
-          <input type="text" name="badge" class="form-control" value="<?= htmlspecialchars($employe['badge'] ?? '') ?>">
+          <label class="form-label">CIN</label>
+          <input type="text" name="CIN"  class="form-control" value="<?= htmlspecialchars($employe['CIN'] ?? '') ?>">
         </div>
         <div class="col-md-6">
-          <label class="form-label">CIN</label>
-          <input type="text" name="CIN" class="form-control" value="<?= htmlspecialchars($employe['CIN'] ?? '') ?>">
+          <label class="form-label">Badge</label>
+          <input type="number" name="badge" class="form-control" min="0" step="1" value="<?= htmlspecialchars($employe['badge'] ?? '') ?>">
         </div>
         <div class="col-md-6">
           <label class="form-label">N° CNSS</label>
-          <input type="text" name="NUMCNSS" class="form-control" value="<?= htmlspecialchars($employe['NUMCNSS'] ?? '') ?>">
+          <input type="number" name="NUMCNSS" min="0" step="1" class="form-control" value="<?= htmlspecialchars($employe['NUMCNSS'] ?? '') ?>">
         </div>
         <div class="col-md-6">
           <label class="form-label">Date Naissance</label>
-          <input type="date" name="dateNaissance" class="form-control" value="<?= htmlspecialchars($employe['dateNaissance'] ?? '') ?>">
+          <input type="date" name="dateNaissance" class="form-control" value="<?= htmlspecialchars($employe['dateNaissance'] ?? '') ?>" required>
         </div>
         <div class="col-md-6">
           <label class="form-label">Date Embauche</label>
@@ -68,7 +78,7 @@
         </div>
         <div class="col-md-6">
           <label class="form-label">Salaire par heure</label>
-          <input type="text" name="salaireHeure" class="form-control" value="<?= htmlspecialchars($employe['salaireHeure'] ?? '') ?>">
+          <input type="number" name="salaireHeure" min="0" step="1" step="any" class="form-control" value="<?= htmlspecialchars($employe['salaireHeure'] ?? '') ?>">
         </div>
         <div class="col-md-6">
           <label class="form-label">Banque</label>
@@ -76,7 +86,7 @@
         </div>
         <div class="col-md-6">
           <label class="form-label">N° Compte</label>
-          <input type="text" name="numCompte" class="form-control" value="<?= htmlspecialchars($employe['numCompte'] ?? '') ?>">
+          <input type="number" name="numCompte" min="0" step="1" class="form-control" value="<?= htmlspecialchars($employe['numCompte'] ?? '') ?>">
         </div>
       </div>
       <div class="text-center mt-4">

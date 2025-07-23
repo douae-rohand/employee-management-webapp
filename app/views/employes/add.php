@@ -3,6 +3,16 @@
 <div class="add-container">  
   <div class="add-card">
     <h2>Ajouter un Employé</h2>
+    <?php if (!empty($_SESSION['form_errors'])): ?>
+      <div class="alert alert-danger">
+          <ul>
+            <?php foreach ($_SESSION['form_errors'] as $error): ?>
+              <li><?= htmlspecialchars($error) ?></li>
+            <?php endforeach; ?>
+          </ul>
+      </div>
+    <?php unset($_SESSION['form_errors']); ?>
+    <?php endif; ?>
     <form method="POST" action="index.php?page=addEmploye" enctype="multipart/form-data">
       <div class="text-center mb-3">
         <label for="photo" class="form-label" style="display:block; color:#0a2342; font-weight:600;">Photo de l'employé</label>
@@ -11,7 +21,7 @@
       <div class="row g-3">
         <div class="col-md-6">
           <label class="form-label">Matricule</label>
-          <input type="text" name="matricule" class="form-control" required>
+          <input type="number" name="matricule" min="0" step="1" class="form-control" required>
         </div>
         <div class="col-md-6">
           <label class="form-label">Nom</label>
@@ -27,15 +37,15 @@
         </div>
         <div class="col-md-6">
           <label class="form-label">Badge</label>
-          <input type="text" name="badge" class="form-control">
+          <input type="number" name="badge" min="0" step="1" class="form-control">
         </div>
         <div class="col-md-6">
           <label class="form-label">N° CNSS</label>
-          <input type="text" name="NUMCNSS" class="form-control">
+          <input type="number" name="NUMCNSS" min="0" step="1" class="form-control">
         </div>
         <div class="col-md-6">
           <label class="form-label">Date Naissance</label>
-          <input type="date" name="dateNaissance" class="form-control">
+          <input type="date" name="dateNaissance" class="form-control" required>
         </div>
         <div class="col-md-6">
           <label class="form-label">Date Embauche</label>
@@ -63,7 +73,7 @@
         </div>
         <div class="col-md-6">
           <label class="form-label">Salaire par heure</label>
-          <input type="text" name="salaireHeure" class="form-control">
+          <input type="number" name="salaireHeure" min="0" step="1" class="form-control">
         </div>
         <div class="col-md-6">
           <label class="form-label">Banque</label>
@@ -71,7 +81,7 @@
         </div>
         <div class="col-md-6">
           <label class="form-label">N° compte</label>
-          <input type="text" name="numCompte" class="form-control">
+          <input type="number" name="numCompte" min="0" step="1" class="form-control">
         </div>
       </div>
       <div class="text-center mt-4">

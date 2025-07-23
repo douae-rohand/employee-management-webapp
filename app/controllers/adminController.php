@@ -74,7 +74,7 @@ switch ($action) {
             Admin::storeResetToken($admin['id'], $token, $expire);
 
             // Préparer lien
-            $resetLink = "http://localhost/projetRH/app/index.php?page=resetPassword1&token=$token";
+            $resetLink = "http://localhost:8000/index.php?page=resetPassword1&token=$token";
 
             // Envoyer email
             require 'vendor/autoload.php';
@@ -115,13 +115,15 @@ switch ($action) {
 
                 // Envoyer et gérer erreurs
                 $mail->send(); 
-                echo "Un email de réinitialisation a été envoyé à votre adresse.";
+                echo "<div class='alert alert-success'>Un email de réinitialisation vient de vous être envoyé à votre adresse</div>";
+                
             } catch (Exception $e) {
-                echo "Erreur lors de l'envoi : {$mail->ErrorInfo}";
+                echo "<div class='alert alert-danger'>Une erreur est survenue lors de l’envoi de l’email. Veuillez réessayer plus tard ou contacter le support. <br><small>Détails : {$mail->ErrorInfo}</small></div>";
+
             }
 
             } else {
-                echo "Aucun compte trouvé avec cet email.";
+                echo "<div class='alert alert-warning'>Aucun compte n'est associé à cette adresse email</div>";
             }
         }
         $vue = 'views/admin/forgotPassword.php';

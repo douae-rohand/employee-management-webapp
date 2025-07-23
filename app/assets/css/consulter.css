@@ -85,11 +85,15 @@ body {
     margin-bottom: 18px;
 }
 .consulter-section .table {
-    background: #fff;
+    background-color: #fff;
     border-radius: 12px;
+    border-collapse: separate !important;
+    border-spacing: 0;
+    overflow: hidden;
     font-size: 0.98rem;
     margin-bottom: 0;
 }
+
 .consulter-section .table th {
     background: #0a2342;
     color: #fff;
@@ -98,15 +102,17 @@ body {
     font-size: 1.01rem;
     text-align: center;
 }
+
 .consulter-section .table td {
-    background: #f5f7fa;
+    background: #ffffff;
     color: #0a2342;
-    border: none;
+    border-bottom: 1px solid #ddd;
     text-align: center;
     padding: 7px 8px;
 }
+
 .consulter-section .table tr {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #ffffff;
 }
 
 .consulter-actions, .consulter-section .actions {
@@ -117,9 +123,15 @@ body {
     margin-top: 18px;
 }
 
+.consulter-section .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+}
+
 .consulter-section .btn {
     background: #0a2342;
-    color: #fff;
+    color: #ffffff;
     border-radius: 16px;
     font-weight: 600;
     font-size: 1.01rem;
@@ -148,7 +160,25 @@ body {
     gap: 10px;
 }
 
-.btn-consulter:hover, .consulter-section .btn:hover { background: #163d6b; }
+.btn-consulter2{
+    background: #0a2342;
+    width: 50px;
+    color: #fff;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1.01rem;
+    padding: 8px 18px;
+    border: none;
+    outline: none !important;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-consulter:hover, .consulter-section .btn:hover { 
+    background: #163d6b; 
+}
 
 .btn-danger {
     background: #e74c3c !important;
