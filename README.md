@@ -75,7 +75,7 @@ graph TD
 
 ## Installation & Setup
 
-### 🐳 Method 1: Docker (Recommended)
+### Method 1: Docker (Recommended)
 
 1. **Clone the repository**:
    ```bash
