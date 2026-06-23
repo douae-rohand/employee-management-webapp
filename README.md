@@ -1,4 +1,4 @@
-# 💼 Employee Management Web Application
+# Employee Management Web Application
 
 [![PHP Version](https://img.shields.io/badge/PHP-8.2-777BB4?style=flat-square&logo=php)](https://www.php.net/)
 [![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=flat-square&logo=mysql)](https://www.mysql.com/)
@@ -8,29 +8,29 @@ A professional, MVC-based PHP application designed to streamline Human Resources
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-### 👤 Admin Management
+### Admin Management
 - **Secure Authentication**: Multi-user login with session management.
 - **Profile Customization**: Admins can update their personal information and manage credentials.
 - **Admin Dashboard**: A centralized hub for quick access to all HR functions.
 
-### 📋 Employee Management
+### Employee Management
 - **Full CRUD Operations**: Create, Read, Update, and Delete employee profiles.
 - **Rich Profiles**: Track detailed info including matricule, CIN, badge, CNSS, and bank details.
 - **Photo Management**: Support for employee profile pictures.
 - **Bulk Data Import**: Automatic CSV import functionality for quick onboarding.
 
-### 📅 Absence Tracking
+### Absence Tracking
 - **Leave Management**: Log and track employee absences with specific dates and types.
 - **History Tracking**: Maintain a clear record of attendance for every staff member.
 
-### 📄 Document Generation
+### Document Generation
 - **Automated Attestations**: Generate professional work attestations with a single click.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 The application follows the **Model-View-Controller (MVC)** architectural pattern for clean code separation and scalability.
 
@@ -46,7 +46,7 @@ graph TD
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend**: PHP 8.2 (Vanilla with PDO)
 - **Frontend**: HTML5, CSS3, JavaScript
@@ -56,7 +56,7 @@ graph TD
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 ├── app/
@@ -73,7 +73,7 @@ graph TD
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 🐳 Method 1: Docker (Recommended)
 
@@ -95,7 +95,7 @@ graph TD
 4. **Initialize Database**:
    - Navigate to `http://localhost:<APP_PORT>/database/migration.php` to run migrations and import initial data.
 
-### 💻 Method 2: Manual Setup
+### Method 2: Manual Setup
 
 1. **Prerequisites**: PHP 8.2 & MySQL/MariaDB server.
 2. **Configuration**: Set up your local database and update the `.env` file.
@@ -104,7 +104,7 @@ graph TD
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 - **`admin`**: Managed credentials and profile info for HR staff.
 - **`employes`**: Stores comprehensive employee data, linked via `matricule`.
@@ -112,6 +112,6 @@ graph TD
 
 ---
 
-## 📝 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
